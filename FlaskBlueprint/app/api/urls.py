@@ -13,7 +13,6 @@ def get_urls(app):
 
     for module, path in api_modules.items():
         m = importlib.import_module('.' + module, package='app.api')
-        print('------:', m)
         urls = m.get_urls(app)
         if urls:
             bp.register_blueprint(urls, url_prefix=path)
